@@ -1,10 +1,21 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { FullComponent } from './layouts/full/full.component';
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const Approutes: Routes = [
+  {
+    path: '',
+    component: FullComponent,
+    children: [
+      { path: '', redirectTo: '/todo', pathMatch: 'full' },
+      {
+        path: 'todo',
+        loadChildren: () => import('./pages/todo/todo.module').then((m) => m.ToDoModule),
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: '/todo',
+  },
+];

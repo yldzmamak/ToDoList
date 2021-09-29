@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div
+        class="align-items-center card-header d-flex justify-content-between"
+      >
+        <h5 class="m-0">{{ 'todo.list.title' | translate }}</h5>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="toRouteUrl('/todo/save')"
+        >
+          Yapılacak Ekle
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Detay</th>
+        <th>Yapılacak</th>
+        <th>Durum</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="checkboxNoLabel"
+            value=""
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
