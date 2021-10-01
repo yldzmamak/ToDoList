@@ -4,13 +4,13 @@
       <div
         class="align-items-center card-header d-flex justify-content-between"
       >
-        <h5 class="m-0">{{ 'todo.list.title' | translate }}</h5>
+        <h5 class="m-0">{{ "todo.list.title" | translate }}</h5>
         <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-outline-primary"
           (click)="toRouteUrl('/todo/save')"
         >
-          Yapılacak Ekle
+          What needs to be done?
         </button>
       </div>
     </div>
@@ -21,22 +21,57 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Detay</th>
+        <th></th>
         <th>Yapılacak</th>
+        <th>açıklama</th>
+        <th>priority</th>
         <th>Durum</th>
+        <th>Düzenle</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Default</td>
-        <td>Defaultson</td>
+      <tr
+        *ngFor="let todo of todos$ | async"
+        [ngClass]="{ 'complete-todo-row': todo.status === true }"
+      >
+        <td>
+          <i
+            class="bi bi-chevron-right"
+            (click)="toRouteUrl('/todo/detail', todo.id)"
+          ></i>
+        </td>
+
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.description }}</td>
+        <td>
+          <span *ngIf="todo.priority == 'low'" class="badge btn-success"
+            >Low</span
+          >
+          <span *ngIf="todo.priority == 'medium'" class="badge btn-warning"
+            >Medium</span
+          >
+          <span *ngIf="todo.priority == 'high'" class="badge btn-danger"
+            >High</span
+          >
+        </td>
         <td>
           <input
             class="form-check-input"
             type="checkbox"
             id="checkboxNoLabel"
-            value=""
+            [checked]="todo.status"
+            (change)="eventCheck($event, todo)"
           />
+        </td>
+        <td>
+          <i
+          class="bi bi-pencil-square"
+          (click)="toRouteUrl('/todo/save', todo.id)"
+          ></i>
+          <i
+            class="bi bi-trash m-2"
+            (click)="deleteToDo(todo.id)"
+          ></i>
         </td>
       </tr>
     </tbody>

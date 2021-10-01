@@ -11,6 +11,9 @@ import { ToDoComponent } from './todo.component';
 //modules
 import { PipeModule } from 'src/app/pipes/pipe.module';
 
+//services
+import { TodoService } from 'src/app/services/todo.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -21,7 +24,7 @@ const routes: Routes = [
     component: SaveTodoComponent,
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     component: DetailTodoComponent,
   },
 ];
@@ -34,5 +37,6 @@ const routes: Routes = [
     PipeModule,
   ],
   declarations: [ToDoComponent, SaveTodoComponent, DetailTodoComponent],
+  providers: [TodoService],
 })
 export class ToDoModule {}

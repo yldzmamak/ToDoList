@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
 
 import { Approutes } from './app-routing.module';
 
@@ -15,6 +16,9 @@ import { PipeModule } from './pipes/pipe.module';
 // Services
 import { TranslateService } from './services/translate.service';
 
+// Store
+import { AppReducers } from './store/reducers/todos.reducer';
+
 export function setupTranslateFactory(service: TranslateService): Function {
   return () => service.use(service.getLanguage());
 }
@@ -25,6 +29,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(Approutes),
+    StoreModule.forRoot(AppReducers),
     PipeModule,
   ],
   providers: [

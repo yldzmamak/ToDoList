@@ -1,1 +1,58 @@
-<p>save-todo works!</p>
+<div class="row mb-5">
+  <div class="col-12">
+    <div class="card">
+      <div class="align-items-center card-header d-flex">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="toRouteUrl('/todo')"
+        >
+          <i class="bi bi-chevron-left mr-2"></i>
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+  <div class="form-row">
+    <div class="col-auto mb-2">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Title"
+        [(ngModel)]="todo.title"
+        name="desc"
+        #desc="ngModel"
+      />
+    </div>
+
+    <div class="col-auto mb-2">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Description"
+        [(ngModel)]="todo.description"
+        name="responsible"
+        #responsible="ngModel"
+      />
+    </div>
+
+    <div class="mb-2">
+      <select
+        class="form-control"
+        [(ngModel)]="todo.priority"
+        name="priority"
+        #priority="ngModel"
+      >
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <div class="col-auto d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+</form>
