@@ -1,14 +1,13 @@
-<!-- <a routerLink="/todo/save">save</a>
-<a style="margin-left: 20px" routerLink="/todo/detail">detail</a> -->
 <div class="container">
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img
-        src="https://www.felece.com/images/logo.png"
-        alt=""
-        height="24"
-      />
+    <a class="navbar-brand" href="/todo">
+      <img src="https://www.felece.com/images/logo.png" alt="" height="24" />
     </a>
+    <div class="d-flex justify-content-end align-items-center">
+      <button class="btn btn-link" (click)="changeLanguage('tr')">TR</button>
+      |
+      <button class="btn btn-link" (click)="changeLanguage('en')">EN</button>
+    </div>
   </nav>
 
   <div class="mt-3">

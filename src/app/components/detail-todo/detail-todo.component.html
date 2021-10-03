@@ -1,1 +1,61 @@
-<p>detail-todo works!</p>
+<div class="row mb-5">
+  <div class="col-12">
+    <div class="align-items-center card-header d-flex justify-content-between">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="toRouteUrl('/todo')"
+      >
+        <i class="bi bi-chevron-left"></i>
+        {{ "back" | translate }}
+      </button>
+      <div>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="toRouteUrl('/todo/save', todo.id)"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger danger-button"
+          (click)="deleteToDo(todo.id)"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card card-body mb-2">
+  <span class="fw-bold"> {{ "title" | translate }} : </span>
+  {{ todo?.title }}
+</div>
+<div class="card card-body mb-2">
+  <span class="fw-bold"> {{ "description" | translate }} : </span>
+  {{ todo?.description }}
+</div>
+<div class="card card-body mb-2">
+  <span>
+    <span class="fw-bold"> {{ "priority" | translate }} : </span>
+    <span
+      class="badge"
+      [ngClass]="
+        todo?.priority == 'low'
+          ? 'btn-success'
+          : todo?.priority == 'medium'
+          ? 'btn-warning'
+          : 'btn-danger'
+      "
+      >{{
+        todo?.priority == "low"
+          ? ("low" | translate)
+          : todo?.priority == "medium"
+          ? ("medium" | translate)
+          : ("high" | translate)
+      }}</span
+    >
+  </span>
+</div>

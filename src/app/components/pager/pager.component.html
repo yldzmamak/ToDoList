@@ -1,0 +1,33 @@
+<div class="btn-group" role="group">
+  <button
+    class="btn btn-outline-dark"
+    [disabled]="!canMoveToPreviousPage"
+    (click)="moveToFirstPage()"
+  >
+    <i class="bi bi-chevron-double-left"></i>
+  </button>
+  <button
+    class="btn btn-outline-primary"
+    [disabled]="!canMoveToPreviousPage"
+    (click)="moveToPreviousPage()"
+  >
+    <i class="bi bi-chevron-left"></i>
+  </button>
+  <button class="btn btn-primary" disabled style="width: 100px">
+    {{ pageIndex + 1 }} / {{ _pageCount }}
+  </button>
+  <button
+    class="btn btn-outline-primary"
+    [disabled]="!canMoveToNextPage"
+    (click)="moveToNextPage()"
+  >
+    <i class="bi bi-chevron-right"></i>
+  </button>
+  <button
+    class="btn btn-outline-dark"
+    [disabled]="!canMoveToNextPage"
+    (click)="moveToLastPage()"
+  >
+    <i class="bi bi-chevron-double-right"></i>
+  </button>
+</div>

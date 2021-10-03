@@ -8,6 +8,7 @@ import { Approutes } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { PagerModule } from './components/pager/pager.module';
 import { FullComponent } from './layouts/full/full.component';
 
 // Modules
@@ -31,6 +32,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
     RouterModule.forRoot(Approutes),
     StoreModule.forRoot(AppReducers),
     PipeModule,
+    PagerModule,
   ],
   providers: [
     {

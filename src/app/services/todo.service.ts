@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap, take } from 'rxjs/operators';
 
 //actions
 import {
@@ -26,18 +26,22 @@ export class TodoService {
 
   constructor(private store: Store<AppState>) {}
 
-  todos$: Observable<ToDo[]> =
+  todoList$: Observable<ToDo[]> =
     this.store && this.store.select((s) => s.appTodo).pipe(map((b) => b.todos));
 
-  todoCount$: Observable<number> = this.todos$.pipe(map((b) => b.length));
+  todoCount$: Observable<number> = this.todoList$.pipe(map((b) => b.length));
 
   getTodos() {
     this.store.dispatch(ProvideTodos({ todos: this.TODOS }));
   }
 
-  /*  getTodoById(id: string) {
-    this.store.dispatch(GetTodoById({ id: id, todos: this.todos$ }));
-  } */
+  getTodoById(id: string) {
+    let todo;
+    this.todoList$.pipe(take(1)).subscribe((val) => {
+      todo = val.find((item) => item.id == id);
+    });
+    return todo;
+  }
 
   deleteTodo(id: string) {
     this.store.dispatch(DeleteTodo({ id }));
@@ -56,5 +60,33 @@ export class TodoService {
 
   updateTodo(todo: ToDo) {
     this.store.dispatch(UpdateTodo({ todo: todo }));
+  }
+
+  _productNames = 'dummy, dummy2, dummy3, dummy4'.split(',')
+
+  getOrders(length = 5): object[] {
+    let orders: object[] = [];
+    for (let i = 0; i < length; i++) {
+      let date = new Date();
+      orders.push({
+        'No': i + 1,
+        'Name': this.randomArray(this._productNames),
+        'Date': this.addDays(date, -this.random(30)).toLocaleDateString(),
+        'Amount': this.random(500, 10) * 100
+      });
+    }
+    return orders;
+  }
+
+  random(max: number, min = 0): number {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  randomArray(items: any[]): any {
+    return items[this.random(items.length)];
+  }
+
+  addDays(value: Date, days: number): Date {
+    return new Date(value.getFullYear(), value.getMonth(), value.getDate() + days);
   }
 }

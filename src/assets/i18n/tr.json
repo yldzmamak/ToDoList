@@ -1,3 +1,22 @@
 {
-  "todo.list.title": "Yapılacaklar Listesi"
+  "todo.list.title": "Yapılacaklar Listesi",
+  "todo.list.button": "Ne yapılması gerekiyor?",
+
+  "back": "Geri",
+  "create": "Oluştur",
+  "update": "Güncelle",
+  "detail": "Detay",
+  "title": "Başlık",
+  "description": "Açıklama",
+  "priority": "Öncelik",
+  "status": "Durum",
+  "actions": "Eylemler",
+  "low": "Düşük",
+  "medium": "Orta",
+  "high": "Yüksek",
+  "select.priority": "Lütfen öncelik seçiniz.",
+
+  "title.required": "Başlık zorunlu alandır.",
+  "description.required": "Açıklama zorunlu alandır.",
+  "priority.required": "Öncelik zorunlu alandır."
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //components
 import { DetailTodoComponent } from 'src/app/components/detail-todo/detail-todo.component';
@@ -13,6 +13,7 @@ import { PipeModule } from 'src/app/pipes/pipe.module';
 
 //services
 import { TodoService } from 'src/app/services/todo.service';
+import { PagerModule } from 'src/app/components/pager/pager.module';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
     component: SaveTodoComponent,
   },
   {
-    path: 'detail/:id',
+    path: 'detail',
     component: DetailTodoComponent,
   },
 ];
@@ -32,9 +33,11 @@ const routes: Routes = [
 @NgModule({
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     RouterModule.forChild(routes),
     PipeModule,
+    PagerModule
   ],
   declarations: [ToDoComponent, SaveTodoComponent, DetailTodoComponent],
   providers: [TodoService],

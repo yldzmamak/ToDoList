@@ -1,3 +1,22 @@
 {
-  "todo.list.title": "Todo List"
+  "todo.list.title": "Todo List",
+  "todo.list.button": "What needs to be done?",
+
+  "back": "Back",
+  "create": "Create",
+  "update": "Update",
+  "detail": "Detail",
+  "title": "Title",
+  "description": "Description",
+  "priority": "Priority",
+  "status": "Status",
+  "actions": "Actions",
+  "low": "Low",
+  "medium": "Medium",
+  "high": "High",
+  "select.priority": "Please select priority.",
+
+  "title.required": "Title is required.",
+  "description.required": "Description is required.",
+  "priority.required": "Priority is required."
 }
