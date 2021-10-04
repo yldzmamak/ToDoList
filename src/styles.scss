@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+
+/* Variables Import */
+@import './assets/styles/variables.scss';
+
+/* Mixins Import */
+@import './assets/styles/mixins.scss';
+
+/* Custom Styles Import */
+@import './assets/styles/custom-reset.scss';
+@import './assets/styles/layout.scss';
+@import './assets/styles/component.scss';

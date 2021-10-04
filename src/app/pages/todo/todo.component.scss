@@ -1,4 +1,12 @@
+@import '../../../assets/styles/variables'; 
+
 .complete-todo-row {
-  background-color: #aeffaa;
+  background-color: $mint-green;
   text-decoration: line-through;
+}
+
+.table {
+  &-icon {
+    cursor: pointer;
+  }
 }

@@ -1,0 +1,114 @@
+@mixin phone {
+  @media screen and (max-width: $screen-phone-max) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $screen-tablet) and (max-width: $screen-tablet-max) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $screen-desktop) and (max-width: $screen-desktop-max) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media screen and (min-width: $screen-lg-desktop) and (max-width: $screen-l-desktop-max) {
+    @content;
+  }
+}
+
+@mixin x-large-desktop {
+  @media screen and (min-width: $screen-xlg-desktop) {
+    @content;
+  }
+}
+
+@mixin phone-tablet {
+  @media screen and (max-width: $screen-tablet-max) {
+    @content;
+  }
+}
+
+@mixin tablet-desktop {
+  @media screen and (min-width: $screen-tablet) and (max-width: $screen-desktop-max) {
+    @content;
+  }
+}
+
+@mixin phone-tablet-desktop {
+  @media screen and (max-width: $screen-desktop-max) {
+    @content;
+  }
+}
+
+@mixin desktop-large-desktop {
+  @media screen and (min-width: $screen-desktop) and (max-width: $screen-l-desktop-max) {
+    @content;
+  }
+}
+
+// ie9 & above
+@mixin ie {
+  @media screen and (min-width: 0\0) {
+    @content;
+  }
+}
+
+// edge 12 and +
+@mixin edge {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+//ff mozilla any version (gecko)
+@mixin ff {
+  @supports (-moz-appearance: none) {
+    @content;
+  }
+}
+
+// transition
+@mixin transition($transition) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+// opacity
+@mixin opacity($value) {
+  -moz-opacity: $value;
+  -khtml-opacity: $value;
+  opacity: $value;
+}
+
+// transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
+.transition-smooth {
+  transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.2s linear 0s;
+}

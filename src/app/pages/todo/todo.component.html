@@ -35,7 +35,7 @@
       >
         <td>
           <i
-            class="bi bi-chevron-right"
+            class="table-icon bi bi-chevron-right"
             (click)="toRouteUrl('/todo/detail', todo.id)"
           ></i>
         </td>
@@ -74,10 +74,10 @@
 
         <td>
           <i
-            class="bi bi-pencil-square"
+            class="table-icon bi bi-pencil-square check-icon"
             (click)="toRouteUrl('/todo/save', todo.id)"
           ></i>
-          <i class="bi bi-trash m-2" (click)="deleteToDo(todo.id)"></i>
+          <i class="table-icon bi bi-trash danger-button m-2 x-icon" (click)="deleteToDo(todo.id)"></i>
         </td>
       </tr>
     </tbody>
