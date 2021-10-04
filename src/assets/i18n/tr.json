@@ -15,6 +15,7 @@
   "medium": "Orta",
   "high": "Yüksek",
   "select.priority": "Lütfen öncelik seçiniz.",
+  "no.data": "Veri Yok.",
 
   "title.required": "Başlık zorunlu alandır.",
   "description.required": "Açıklama zorunlu alandır.",

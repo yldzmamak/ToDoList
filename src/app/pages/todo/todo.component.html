@@ -24,6 +24,7 @@
         <th>{{ "actions" | translate }}</th>
       </tr>
     </thead>
+
     <tbody>
       <tr
         *ngFor="
@@ -77,11 +78,17 @@
             class="table-icon bi bi-pencil-square check-icon"
             (click)="toRouteUrl('/todo/save', todo.id)"
           ></i>
-          <i class="table-icon bi bi-trash danger-button m-2 x-icon" (click)="deleteToDo(todo.id)"></i>
+          <i
+            class="table-icon bi bi-trash danger-button m-2 x-icon"
+            (click)="deleteToDo(todo.id)"
+          ></i>
         </td>
       </tr>
     </tbody>
   </table>
+  <div *ngIf="todoList.length == 0" class="d-flex justify-content-center">
+    {{ "no.data" | translate }}
+  </div>
   <div class="d-flex justify-content-center">
     <app-pager
       *ngIf="todoList.length > 10"

@@ -15,6 +15,7 @@
   "medium": "Medium",
   "high": "High",
   "select.priority": "Please select priority.",
+  "no.data": "No Data.",
 
   "title.required": "Title is required.",
   "description.required": "Description is required.",
